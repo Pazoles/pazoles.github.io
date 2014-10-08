@@ -1,0 +1,53 @@
+.hex {
+        float: left;
+        margin-right: -18px;
+        margin-bottom: -46px;
+    }
+.hex .left {
+        float: left;
+        width: 0;
+        border-right: 30px solid #96D1AD;
+        border-top: 52px solid transparent;
+        border-bottom: 52px solid transparent;
+    }
+.hex .middle {
+        float: left;
+        width: 60px;
+        height: 104px;
+        background: #96D1AD;
+        
+    }
+.hex .right {
+        float: left;
+        width: 0;
+        border-left: 30px solid #96D1AD;
+        border-top: 52px solid transparent;
+        border-bottom: 52px solid transparent;
+    }
+.hex-row {
+        clear: left;
+    }
+.hex.even {
+        margin-top: 60px;
+    }
+header{
+	font-family: dosis;
+	    margin: 0 auto;
+	    text-align: center;
+
+}
+
+h1{
+	font-size:60pt;
+	color: #96D1AD;
+	font-weight: 500;
+	margin-bottom: 0;
+
+}
+h2{
+	font-size:36pt;
+	color:#4b4949;
+	font-weight: 300;
+	letter-spacing: 10px;
+	margin-top: -20px;
+}
