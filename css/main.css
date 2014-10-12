@@ -4,7 +4,7 @@
   width: 60px;
 }
 
-.hexagon a img {
+.hexagon img {
 	z-index: 10;
 	position: relative;
 }
@@ -66,6 +66,10 @@
 }
 .hexagon:hover{
 	background-color:#6da782 !important;
+}
+
+.hexagon:active{
+	background-color: #4d775c !important;
 }
 
 .hex-row {
