@@ -1,5 +1,12 @@
-a {
-	margin: 0 auto;
+
+.hexagon a {
+	height: 104px;
+  width: 60px;
+}
+
+.hexagon a img {
+	z-index: 10;
+	position: relative;
 }
 
 #hex1 {
@@ -26,6 +33,7 @@ a {
   height: 100%;
   width: calc(100% * 0.57735);
   display: inline-block;
+  z-index: 2
 }
 
 .hexagon:before {
@@ -39,6 +47,7 @@ a {
   transform: rotateZ(60deg);
     -webkit-transform: rotateZ(60deg);
   -moz-transform: rotateZ(60deg);
+   z-index: 1
 }
 
 .hexagon:after {
@@ -52,6 +61,7 @@ a {
   transform: rotateZ(-60deg);
   -webkit-transform: rotateZ(-60deg);
   -moz-transform: rotateZ(-60deg);
+   z-index: 0
 
 }
 .hexagon:hover{
