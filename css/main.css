@@ -4,6 +4,7 @@ html, body {
 }
 table {
     margin: 0 auto;
+    border: 2px;
 }
 .hexagon a {
 	height: 104px;
