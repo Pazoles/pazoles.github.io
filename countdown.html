@@ -39,7 +39,7 @@ var end = new Date('09/05/2015 05:30 PM');
         var minutes = Math.floor((distance % _hour) / _minute);
         var seconds = Math.floor((distance % _minute) / _second);
 
-        document.getElementById('days').innerHTML = days + '<u class="words"> DAYS</u> ';
+        document.getElementById('days').innerHTML = days + ' <sup class="words">DAYS</u> ';
         document.getElementById('hours').innerHTML = hours + ' HOURS ';
         document.getElementById('minutes').innerHTML = minutes + ' MINUTES ';
         document.getElementById('seconds').innerHTML = seconds + ' SECONDS';
