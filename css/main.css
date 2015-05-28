@@ -108,11 +108,11 @@ display: block;
     font-size:60pt;
       font-weight: 500;
 width: 100%;
-text-align: center;
+text-align: right;
 vertical-align: text-top;
+border: none;
 }
 
 .words{
-  border-bottom: 2px solid #000;
-  font-size:30pt;
+
 }

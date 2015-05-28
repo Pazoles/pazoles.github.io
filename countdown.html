@@ -4,12 +4,13 @@
 <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/main.css">
 <body>
-<div class="countdown">
-<div class="countdown" style="height:20px;"></div>
-<div class="countdown" id="days">x</div>
-<div class="countdown" id="hours"></div>
-<div class="countdown" id="minutes"></div>
-<div class="countdown" id="seconds"></div>
+<table class="countdown">
+<tr class="countdown" style="height:20px;"></div>
+<tr><td class="countdown" id="days"></td><td class="words">DAYS</td></tr>
+<tr><td class="countdown" id="hours"></td><td class="words">HOURS</td></tr>
+<tr><td class="countdown" id="minutes"></td><td class="words">MINUTES</td></tr>
+<tr><td class="countdown" id="seconds"></td><td class="words">SECONDS</td></tr>
+</table>
 </div>
 
 
@@ -39,10 +40,10 @@ var end = new Date('09/05/2015 05:30 PM');
         var minutes = Math.floor((distance % _hour) / _minute);
         var seconds = Math.floor((distance % _minute) / _second);
 
-        document.getElementById('days').innerHTML = days + '<sup class="words">DAYS</u>';
-        document.getElementById('hours').innerHTML = hours + '<sup class="words">HOURS</u>';
-        document.getElementById('minutes').innerHTML = minutes + '<sup class="words">MINUTES</u>';
-        document.getElementById('seconds').innerHTML = seconds + '<sup class="words">SECONDS</u>';
+        document.getElementById('days').innerHTML = days ;
+        document.getElementById('hours').innerHTML = hours ;
+        document.getElementById('minutes').innerHTML = minutes ;
+        document.getElementById('seconds').innerHTML = seconds ;
     }
 
     timer = setInterval(showRemaining, 1000);
