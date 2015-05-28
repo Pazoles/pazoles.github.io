@@ -118,6 +118,7 @@ border: none;
 
 .words{
 text-align: left;
-vertical-align:text-top;
+vertical-align:top;
 font-size:30pt;
+padding-top:10px;
 }
