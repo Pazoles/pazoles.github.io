@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <head>
 <title>Matt Pazoles | Data Activist</title>
-<link href='http://fonts.googleapis.com/css?family=Dosis:300,500' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/main.css">
 <body>
-<header><h1><div id="countdown"></div></h1></header>
+<header>
+<div id="countdown">
+<div id="days"></div>
+<div id="hours"></div>
+<div id="minutes"></div>
+<div id="seconds"></div>
+</div>
+</header>
 
 
 <script>
@@ -31,10 +38,10 @@ var end = new Date('09/05/2015 05:30 PM');
         var minutes = Math.floor((distance % _hour) / _minute);
         var seconds = Math.floor((distance % _minute) / _second);
 
-        document.getElementById('countdown').innerHTML = days + ' days ';
-        document.getElementById('countdown').innerHTML += hours + ' hours ';
-        document.getElementById('countdown').innerHTML += minutes + 'minutes ';
-        document.getElementById('countdown').innerHTML += seconds + 'seconds';
+        document.getElementById('days').innerHTML = days + ' DAYS ';
+        document.getElementById('hours').innerHTML += hours + ' HOURS ';
+        document.getElementById('minutes').innerHTML += minutes + ' MINUTES ';
+        document.getElementById('seconds').innerHTML += seconds + ' SECONDS';
     }
 
     timer = setInterval(showRemaining, 1000);
