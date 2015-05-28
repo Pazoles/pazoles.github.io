@@ -102,11 +102,17 @@ h2{
 
 .countdown{
     font-family: 'Cutive Mono';
-
+display: block;
   margin: 0 auto;
   float:right;
     font-size:60pt;
       font-weight: 500;
+width: 100%;
+text-align: center;
+vertical-align: text-top;
+}
 
-
+.words{
+  text-decoration: underline;
+  font-size:30pt;
 }
