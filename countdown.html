@@ -39,10 +39,10 @@ var end = new Date('09/05/2015 05:30 PM');
         var minutes = Math.floor((distance % _hour) / _minute);
         var seconds = Math.floor((distance % _minute) / _second);
 
-        document.getElementById('days').innerHTML = days + ' <sup class="words">DAYS</u> ';
-        document.getElementById('hours').innerHTML = hours + ' HOURS ';
-        document.getElementById('minutes').innerHTML = minutes + ' MINUTES ';
-        document.getElementById('seconds').innerHTML = seconds + ' SECONDS';
+        document.getElementById('days').innerHTML = days + '<sup class="words">DAYS</u>';
+        document.getElementById('hours').innerHTML = hours + '<sup class="words">HOURS</u>';
+        document.getElementById('minutes').innerHTML = minutes + '<sup class="words">MINUTES</u>';
+        document.getElementById('seconds').innerHTML = seconds + '<sup class="words">SECONDS</u>';
     }
 
     timer = setInterval(showRemaining, 1000);
