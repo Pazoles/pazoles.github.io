@@ -7,12 +7,13 @@
 
 <table class="cdtable">
 <tr class="countdown" style="height:50px;"></div>
+<tr><td class="countdown" id="years"></td><td class="years">YEARS</td></tr>
 <tr><td class="countdown" id="days"></td><td class="words">DAYS</td></tr>
 <tr><td class="countdown" id="hours"></td><td class="words">HOURS</td></tr>
 <tr><td class="countdown" id="minutes"></td><td class="words">MINUTES</td></tr>
 <tr><td class="countdown" id="seconds"></td><td class="words">SECONDS</td></tr>
 </table>
-
+<h1 id="anniversary"></h1>
 
 
 
@@ -23,28 +24,29 @@ var end = new Date('09/05/2015 05:30 PM');
     var _minute = _second * 60;
     var _hour = _minute * 60;
     var _day = _hour * 24;
+    var _year = _day * 365.25;
     var timer;
 
     function showRemaining() {
         var now = new Date();
-        var distance = end - now;
-        if (distance < 0) {
-
-            clearInterval(timer);
-            document.getElementById('countdown').innerHTML = 'MARRIED!';
-
-            return;
-        }
+        var distance = now - end;
+        var years = Math.floor(distance / _year);
         var days = Math.floor(distance / _day);
         var hours = Math.floor((distance % _day) / _hour);
         var minutes = Math.floor((distance % _hour) / _minute);
         var seconds = Math.floor((distance % _minute) / _second);
 
+        document.getElementById('years').innerHTML = years ;
         document.getElementById('days').innerHTML = days ;
         document.getElementById('hours').innerHTML = hours ;
         document.getElementById('minutes').innerHTML = minutes ;
         document.getElementById('seconds').innerHTML = seconds ;
+        
+        if(days = 0){
+            document.getElementById('anniversary').textContent = "HAPPY ANNIVERSARY!" ;
+        }
     }
+    
 
     timer = setInterval(showRemaining, 1000);
 </script>
