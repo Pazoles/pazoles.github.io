@@ -18,7 +18,7 @@
 
 
 <script>
-var end = new Date('09/05/2015 05:30 PM');
+var wedding = new Date('09/05/2015 05:30 PM');
 
     var _second = 1000;
     var _minute = _second * 60;
@@ -29,7 +29,7 @@ var end = new Date('09/05/2015 05:30 PM');
 
     function showRemaining() {
         var now = new Date();
-        var distance = now - end;
+        var distance = now - wedding;
         var years = Math.floor(distance / _year);
         var days = Math.floor(distance / _day);
         var hours = Math.floor((distance % _day) / _hour);
