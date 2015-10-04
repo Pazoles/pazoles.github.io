@@ -192,7 +192,7 @@
         } else {
             myResult = (current - goal) / undilutedeffect;
             if (isNaN(myResult) == false) {
-                fieldNameElement.textContent = "grams glucose (nearest " + precisionname[0].id + ")"
+                fieldNameElement.textContent = "ml insulin (nearest " + precisionname[0].id + ")"
                 result.textContent = (Math.round(myResult * precision) / precision).toFixed(2)
             }
         };
