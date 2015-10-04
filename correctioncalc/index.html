@@ -139,13 +139,13 @@
         if (current < goal) {
             myResult = (goal - current) / glucose;
             if (isNaN(myResult) == false) {
-                fieldNameElement.textContent = "grams glucose"
+                fieldNameElement.textContent = "grams glucose (nearest 0.25)"
                 result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)
             }
         } else {
             myResult = (current - goal) / undilutedeffect;
             if (isNaN(myResult) == false) {
-                fieldNameElement.textContent = "units novolog"
+                fieldNameElement.textContent = "units novolog (nearest 0.25)"
                 result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)
             }
         };
