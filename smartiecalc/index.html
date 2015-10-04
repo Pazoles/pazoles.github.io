@@ -12,47 +12,70 @@
         text-align: center;
     }
     
+    td {
+        padding-bottom: 15px;
+    }
+    
+    .form-control {
+        height: 60px;
+        font-size: 2em;
+    }
+    
     input {
         text-align: center;
+    }
+    
+    table {
+        float: left;
+        min-width: 400px;
     }
     
     body {
         background-color: #202A25;
         color: #ffffff;
+        font-size: 2em;
     }
-
+    
     #result {
-      font-size: 4em;
+        font-size: 4em;
+        margin-bottom: -20px;
     }
     </style>
 </head>
 
 <body>
-    <form>
-        <table width="80%" border="0">
-            <tr>
-                <th>Current BG</th>
-                <th>Goal BG</th>
-            </tr>
-            <tr>
-                <div class="form-group">
-                    <td>
-                        <input class="form-control" id="Current BG" type="text" onchange="calculate()" />
-                    </td>
-                </div>
-                <div class="form-group">
-                    <td>
-                        <input class="form-control" id="Goal BG" type="text" onchange="calculate()" />
-                    </td>
-                </div>
-            </tr>
-        </table>
-        <table width="80%" border="0">
-            <tr>
-                <th><strong><div id="result"></div></strong><div id="unit"></div></th>
-            </tr>
-            
-    </form>
+    <table width="40%" border="0">
+        <tr>
+            <th>Current BG</th>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input class="form-control" id="Current BG" type="text" onchange="calculate()" />
+                </td>
+            </div>
+        </tr>
+    </table>
+    <table width="40%" border="0">
+        <tr>
+            <th>Goal BG</th>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input class="form-control" id="Goal BG" type="text" onchange="calculate()" />
+                </td>
+            </div>
+        </tr>
+    </table>
+    <table width="80%" border="0">
+        <tr>
+            <th><strong><div id="result"></div></strong>
+                <div id="unit"></div>
+            </th>
+        </tr>
+    </table>
+    
     <script>
     function calculate() {
         var current = parseInt(document.getElementById('Current BG').value);
@@ -60,23 +83,28 @@
         var result = document.getElementById('result');
         var myResult = 0;
         var fieldNameElement = document.getElementById('unit');
-        
-        if(current < goal){
-          myResult = (goal - current) / 3.65;
-          if(isNaN(myResult) == false){
-            fieldNameElement.textContent = "Smarties"
-            result.textContent = myResult.toFixed(0) };
-        } else if ((current > goal) && (current <= 110)){
-          myResult = (current - goal) / 40;
-          if(isNaN(myResult) == false){
-            fieldNameElement.textContent = "Diluted Novolog"
-            result.textContent = (Math.round(myResult * 4) / 4).toFixed(2) }
+
+        if (current < goal) {
+            myResult = (goal - current) / 3.65;
+            if (isNaN(myResult) == false) {
+                fieldNameElement.textContent = "Smarties"
+                result.textContent = myResult.toFixed(0)
+            };
+        } else if ((current > goal) && (current <= 110)) {
+            myResult = (current - goal) / 40;
+            if (isNaN(myResult) == false) {
+                fieldNameElement.textContent = "Diluted Novolog"
+                result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)
+            }
         } else {
-          myResult = (current - goal) / 80;
-          if(isNaN(myResult) == false){
-            fieldNameElement.textContent = "Undiluted Novolog"
-            result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)}
+            myResult = (current - goal) / 80;
+            if (isNaN(myResult) == false) {
+                fieldNameElement.textContent = "Undiluted Novolog"
+                result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)
+            }
         };
+
+
     }
     </script>
 </body>
