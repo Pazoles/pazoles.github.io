@@ -100,14 +100,7 @@
             </div>
         </tr>
     </table>
-    <table id="optionspanel" width="40%" border="0">
-        <tr>
-            <td width="50%">Show Options</td>
-            <td>
-                <input class="form-control" id="panel" style="text-align:center; vertical-align:middle; margin: 0 auto;" type="checkbox" value="1" onclick="show()" />
-            </td>
-        </tr>
-    </table>
+
     <table width="100%" border="0">
         <tr width="400px">
             <th style="margin: 0 auto;"><div id="container"><strong><div id="result"></div></strong>
@@ -131,15 +124,7 @@
         </table>
     </div>
     <script>
-    function show() {
-        var show = document.getElementById('options');
-        if (show.style.display == 'block') {
-            show.style.display = 'none';
-        } else {
-            show.style.display = 'block';
-        }
-
-    }
+    
 
     function calculate() {
         var current = parseInt(document.getElementById('Current BG').value);
