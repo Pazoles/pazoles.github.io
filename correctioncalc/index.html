@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Correction Calc</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+    td,
+    th {
+        padding-left: 15px;
+        text-align: center;
+        vertical-align: center;
+    }
+    
+    .form-control {
+        height: 60px;
+        font-size: 2em;
+    }
+    
+    input {
+        text-align: center;
+        margin: 0 auto;
+        vertical-align: center;
+    }
+    
+    table {
+        float: left;
+        min-width: 400px;
+    }
+    
+    body {
+        background-color: #202A25;
+        color: #ffffff;
+        font-size: 2em;
+    }
+    
+    #container{
+      width: 400px;
+      float:left;
+    }
+    #result {
+        font-size: 4em;
+        margin-bottom: -20px;
+        color:#5bc0eb;
+        text-align: center;
+    }
+
+    #unit {
+      text-align: center;
+    }
+    
+    #options {
+        display: none;
+    }
+    
+    #options .form-control {
+        height: 40px;
+        font-size: 1em;
+    }
+    
+    #optionspanel .form-control {
+        height: 30px;
+    }
+    
+    #options td {
+        padding-bottom: 6px;
+        padding-top: 6px;
+        font-size: .8em;
+    }
+    
+    #unit {
+        margin-bottom: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <table width="40%" border="0">
+        <tr>
+            <th>Current BG</th>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input class="form-control" id="Current BG" type="text" onchange="calculate()" />
+                </td>
+            </div>
+        </tr>
+    </table>
+    <table width="40%" border="0">
+        <tr>
+            <th>Goal BG</th>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td>
+                    <input class="form-control" id="Goal BG" type="text" onchange="calculate()" />
+                </td>
+            </div>
+        </tr>
+    </table>
+    <table id="optionspanel" width="40%" border="0">
+        <tr>
+            <td width="50%">Show Options</td>
+            <td>
+                <input class="form-control" id="panel" style="text-align:center; vertical-align:middle; margin: 0 auto;" type="checkbox" value="1" onclick="show()" />
+            </td>
+        </tr>
+    </table>
+    <table width="100%" border="0">
+        <tr width="400px">
+            <th style="margin: 0 auto;"><div id="container"><strong><div id="result"></div></strong>
+                <div id="unit"></div></div>
+            </th>
+        </tr>
+    </table>
+    <div id="options">
+        <table width="40%" border="0">
+            <tr>
+                <td>1g of Glucose raises BG by:</td>
+                <td>
+                    <input class="form-control" id="glucose" type="text" value="7.3" style="width:50%; display:inline;" onchange="calculate()" /> <small>mg/dL</small></td>
+            </tr>
+            
+            <tr>
+                <td>Insulin lowers BG by:</td>
+                <td>
+                    <input class="form-control" id="undilutedeffect" type="text" value="80" style="width:50%; display:inline;" onchange="calculate()" /> <small>mg/dL</small></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+    function show() {
+        var show = document.getElementById('options');
+        if (show.style.display == 'block') {
+            show.style.display = 'none';
+        } else {
+            show.style.display = 'block';
+        }
+
+    }
+
+    function calculate() {
+        var current = parseInt(document.getElementById('Current BG').value);
+        var goal = parseInt(document.getElementById('Goal BG').value);
+        var result = document.getElementById('result');
+        var myResult = 0;
+        var fieldNameElement = document.getElementById('unit');
+        var glucose = parseInt(document.getElementById('glucose').value);
+        
+        var undilutedeffect = parseInt(document.getElementById('undilutedeffect').value);
+
+        
+
+        if (current < goal) {
+            myResult = (goal - current) / glucose;
+            if (isNaN(myResult) == false) {
+                fieldNameElement.textContent = "grams glucose"
+                result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)
+            }
+        } else {
+            myResult = (current - goal) / undilutedeffect;
+            if (isNaN(myResult) == false) {
+                fieldNameElement.textContent = "units novolog"
+                result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)
+            }
+        };
+
+
+    }
+    </script>
+</body>
+
+</html>
