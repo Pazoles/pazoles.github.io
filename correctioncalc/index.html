@@ -31,7 +31,7 @@
     
     table {
         float: left;
-        min-width: 400px;
+        min-width: 350px;
     }
     
     body {
@@ -82,7 +82,7 @@
       margin:15px;
     }
     </style>
- 	<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
 
@@ -94,8 +94,8 @@
 
   <div id="container" class="cf">  
 
-  	<article class="span1">
-				<section>
+    <article class="span1">
+        <section>
           <table width="40%" border="0">
         <tr>
             <th>Current BG</th>
@@ -137,13 +137,21 @@
                 <td>
                     <input class="form-control" id="undilutedeffect" type="text" value="80" style="width:50%; display:inline;" onchange="calculate()" /> <small>mg/dL</small></td>
             </tr>
+            <tr>
+                <td >Precision:</td>
+                <td style="text-align:left;">
+                    <div><input id="hundredth" name="precision" type="radio" value="100" style="margin:10px;" onchange="calculate()" /> 0.01 </div> 
+                    <div><input id="tenth" name="precision" type="radio" value="10" style="margin:10px;" onchange="calculate()" /> 0.10 </div>
+                    <div><input id="quarter" name="precision" type="radio" value="4" style="margin:10px;" onchange="calculate()" checked /> 0.25 </div>
+                    </td>
+            </tr>
         </table>
     </div>
         </section>
-			</article>
+      </article>
 
-			<aside class="span1 col">
-					<table width="100%" border="0">
+      <aside class="span1 col">
+          <table width="100%" border="0">
         <tr width="400px">
             <th style="margin: 0 auto;"><div id="container"><strong><div id="result"></div></strong>
                 <div id="unit"></div></div>
@@ -151,7 +159,7 @@
         </tr>
     </table>
     <div style="margin: 15px; width:40%;"><input id="reset" type="reset" value="Reset Form" onclick="reset()" /><div>
-			</aside>
+      </aside>
 
   </div> <!--! end of #container -->
 
@@ -171,20 +179,21 @@
         var myResult = 0;
         var fieldNameElement = document.getElementById('unit');
         var glucose = parseInt(document.getElementById('glucose').value);
-        
+        var precision = parseInt($('input[name="precision"]:checked').val());
+        var precisionname = $('input[name="precision"]:checked')
         var undilutedeffect = parseInt(document.getElementById('undilutedeffect').value);
         
         if (current < goal) {
             myResult = (goal - current) / glucose;
             if (isNaN(myResult) == false) {
-                fieldNameElement.textContent = "grams glucose (nearest 0.25)"
-                result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)
+                fieldNameElement.textContent = "grams glucose (nearest " + precisionname[0].id + ")"
+                result.textContent = (Math.round(myResult * precision) / precision).toFixed(2)
             }
         } else {
             myResult = (current - goal) / undilutedeffect;
             if (isNaN(myResult) == false) {
-                fieldNameElement.textContent = "units insulin (nearest 0.25)"
-                result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)
+                fieldNameElement.textContent = "grams glucose (nearest " + precisionname[0].id + ")"
+                result.textContent = (Math.round(myResult * precision) / precision).toFixed(2)
             }
         };
     }
