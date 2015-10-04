@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>  
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset=utf-8 />
-    <title>Correction Calc</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  
+  <title>Correction Calc</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <style>
     td,
     th {
@@ -36,7 +41,6 @@
     }
     
     #container{
-      width: 400px;
       float:left;
     }
     #result {
@@ -78,10 +82,21 @@
       margin:15px;
     }
     </style>
+ 	<link rel="stylesheet" href="style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+
 </head>
 
-<body>
-    <table width="40%" border="0">
+<body class="cf">
+
+  
+
+  <div id="container" class="cf">  
+
+  	<article class="span1">
+				<section>
+          <table width="40%" border="0">
         <tr>
             <th>Current BG</th>
         </tr>
@@ -93,7 +108,9 @@
             </div>
         </tr>
     </table>
-    <table width="40%" border="0">
+        </section>
+        <section>
+          <table width="40%" border="0">
         <tr>
             <th>Goal BG</th>
         </tr>
@@ -105,16 +122,9 @@
             </div>
         </tr>
     </table>
-
-    <table width="100%" border="0">
-        <tr width="400px">
-            <th style="margin: 0 auto;"><div id="container"><strong><div id="result"></div></strong>
-                <div id="unit"></div></div>
-            </th>
-        </tr>
-    </table>
-    <div style="margin: 15px; width:40%;"><input id="reset" type="reset" value="Reset Form" onclick="reset()" /><div>
-    <div id="options">
+        </section>
+        <section>
+          <div id="options">
         <table width="40%" border="0">
             <tr>
                 <td>1g of Glucose raises BG by:</td>
@@ -129,7 +139,26 @@
             </tr>
         </table>
     </div>
-    <script>
+        </section>
+			</article>
+
+			<aside class="span1 col">
+					<table width="100%" border="0">
+        <tr width="400px">
+            <th style="margin: 0 auto;"><div id="container"><strong><div id="result"></div></strong>
+                <div id="unit"></div></div>
+            </th>
+        </tr>
+    </table>
+    <div style="margin: 15px; width:40%;"><input id="reset" type="reset" value="Reset Form" onclick="reset()" /><div>
+			</aside>
+
+  </div> <!--! end of #container -->
+
+  <footer>
+    
+  </footer>
+<script>
     function reset() {
       document.getElementById('Current BG').value = '';
       document.getElementById('Goal BG').value = '';
@@ -161,5 +190,5 @@
     }
     </script>
 </body>
-
 </html>
+
