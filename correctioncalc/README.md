@@ -5,3 +5,5 @@ This is an HTML/javascript implementation of a correction calculator for type 1 
 Units are in mg/dL, and are rounded to the nearest 0.25.
 
 I make no guarantees about this code; edits are welcome!
+
+Last updated 10/4/2015.
