@@ -14,12 +14,12 @@ article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
   margin:0;
-  padding:0;
+  padding-left:10px;
+  padding-bottom:10px;
   border:0;
   outline:0;
   font-size:100%;
   vertical-align:baseline;
-  background:transparent;
 }
 
 article, aside, details, figcaption, figure,
@@ -93,6 +93,35 @@ header h1{
   color: #fff;
   color: rgba(255,255,255, 0.9);
   letter-spacing: 0.05em;
+}
+
+/* NAVIGATION */
+
+nav{
+  margin: 7px 0 7px 0;
+}
+
+nav ul{
+  text-align: right;
+  overflow: auto;
+  width: 100%;
+}
+
+nav ul li{
+  margin: 0 0 0 0;
+  text-align: center;
+  overflow: auto;
+  float: left;
+  width: 33%;
+}
+
+nav a{
+  text-decoration: none;
+  margin: 0;
+  display: block;
+  padding: 7px 0 7px 5%;
+  margin: 0 0 0 4%;
+  background-color: rgba(255,255,255,0.1);
 }
 
 
