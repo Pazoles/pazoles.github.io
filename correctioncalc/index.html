@@ -45,12 +45,10 @@
         color:#5bc0eb;
         text-align: center;
     }
-
     #unit {
       text-align: center;
     }
     
-
     
     #options .form-control {
         height: 40px;
@@ -69,6 +67,15 @@
     
     #unit {
         margin-bottom: 20px;
+    }
+
+    #reset {
+      border-width: 4px;
+      background-color: rgba(0,0,0,0);
+      border-color:#5bc0eb;
+      color:#5bc0eb;
+      border-style: solid;
+      margin:15px;
     }
     </style>
 </head>
@@ -106,6 +113,7 @@
             </th>
         </tr>
     </table>
+    <div style="margin: 15px; width:40%;"><input id="reset" type="reset" value="Reset Form" onclick="reset()" /><div>
     <div id="options">
         <table width="40%" border="0">
             <tr>
@@ -122,8 +130,11 @@
         </table>
     </div>
     <script>
+    function reset() {
+      document.getElementById('Current BG').value = '';
+      document.getElementById('Goal BG').value = '';
+    };
     
-
     function calculate() {
         var current = parseInt(document.getElementById('Current BG').value);
         var goal = parseInt(document.getElementById('Goal BG').value);
@@ -133,9 +144,7 @@
         var glucose = parseInt(document.getElementById('glucose').value);
         
         var undilutedeffect = parseInt(document.getElementById('undilutedeffect').value);
-
         
-
         if (current < goal) {
             myResult = (goal - current) / glucose;
             if (isNaN(myResult) == false) {
@@ -149,8 +158,6 @@
                 result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)
             }
         };
-
-
     }
     </script>
 </body>
