@@ -1,19 +1,21 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>  
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset=utf-8 />
-    <title>Smartie Calc</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  
+  <title>Smartie Calc</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <style>
     td,
     th {
         padding-left: 15px;
         text-align: center;
-    }
-    
-    td {
-        padding-bottom: 15px;
+        vertical-align: center;
     }
     
     .form-control {
@@ -23,11 +25,13 @@
     
     input {
         text-align: center;
+        margin: 0 auto;
+        vertical-align: center;
     }
     
     table {
         float: left;
-        min-width: 400px;
+        min-width: 350px;
     }
     
     body {
@@ -36,47 +40,114 @@
         font-size: 2em;
     }
     
+    #container{
+      float:left;
+    }
     #result {
         font-size: 4em;
         margin-bottom: -20px;
+        color:#5bc0eb;
+        text-align: center;
+    }
+    #unit {
+      text-align: center;
+    }
+    
+    
+    #options .form-control {
+        height: 40px;
+        font-size: 1em;
+    }
+    
+    #optionspanel .form-control {
+        height: 30px;
+    }
+    
+    #options td {
+        padding-bottom: 6px;
+        padding-top: 6px;
+        font-size: .8em;
+    }
+    
+    #unit {
+        margin-bottom: 20px;
+    }
+
+    #reset {
+      border-width: 4px;
+      background-color: rgba(0,0,0,0);
+      border-color:#5bc0eb;
+      color:#5bc0eb;
+      border-style: solid;
+      margin:15px;
     }
     </style>
+  <link rel="stylesheet" href="style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+
 </head>
 
-<body>
-    <table width="40%" border="0">
+<body class="cf">
+
+  
+
+  <div id="container" class="cf">  
+
+    <article class="span1">
+        <section>
+          <table width="40%" border="0">
         <tr>
             <th>Current BG</th>
         </tr>
         <tr>
             <div class="form-group">
                 <td>
-                    <input class="form-control" id="Current BG" type="text" onchange="calculate()" />
+                    <input class="form-control" id="Current BG" type="number" onchange="calculate()" />
                 </td>
             </div>
         </tr>
     </table>
-    <table width="40%" border="0">
+        </section>
+        <section>
+          <table width="40%" border="0">
         <tr>
             <th>Goal BG</th>
         </tr>
         <tr>
             <div class="form-group">
                 <td>
-                    <input class="form-control" id="Goal BG" type="text" onchange="calculate()" />
+                    <input class="form-control" id="Goal BG" type="number" onchange="calculate()" />
                 </td>
             </div>
         </tr>
     </table>
-    <table width="80%" border="0">
-        <tr>
-            <th><strong><div id="result"></div></strong>
-                <div id="unit"></div>
+        </section>
+        
+      </article>
+
+      <aside class="span1 col">
+          <table width="100%" border="0">
+        <tr width="400px">
+            <th style="margin: 0 auto;"><div id="container"><strong><div id="result"></div></strong>
+                <div id="unit"></div></div>
             </th>
         </tr>
     </table>
+    <div style="margin: 15px; width:40%;"><input id="reset" type="reset" value="Reset Form" onclick="reset()" /><div>
+      </aside>
+
+  </div> <!--! end of #container -->
+
+  <footer>
     
-    <script>
+  </footer>
+<script>
+    function reset() {
+      document.getElementById('Current BG').value = '';
+      document.getElementById('Goal BG').value = '';
+    };
+    
     function calculate() {
         var current = parseInt(document.getElementById('Current BG').value);
         var goal = parseInt(document.getElementById('Goal BG').value);
@@ -87,26 +158,23 @@
         if (current < goal) {
             myResult = (goal - current) / 3.65;
             if (isNaN(myResult) == false) {
-                fieldNameElement.textContent = "Smarties"
+                fieldNameElement.textContent = "smarties"
                 result.textContent = myResult.toFixed(0)
             };
         } else if ((current > goal) && (current <= 110)) {
             myResult = (current - goal) / 40;
             if (isNaN(myResult) == false) {
-                fieldNameElement.textContent = "Diluted Novolog"
+                fieldNameElement.textContent = "units diluted novolog"
                 result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)
             }
         } else {
             myResult = (current - goal) / 80;
             if (isNaN(myResult) == false) {
-                fieldNameElement.textContent = "Undiluted Novolog"
+                fieldNameElement.textContent = "undiluted novolog"
                 result.textContent = (Math.round(myResult * 4) / 4).toFixed(2)
             }
         };
-
-
     }
     </script>
 </body>
-
 </html>
